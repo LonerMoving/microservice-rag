@@ -1,0 +1,10 @@
+sentence-transformers
+faiss-cpu
+pymupdf
+python-docx
+ollama
+aiohttp
+numpy
+python-multipart
+uvicorn
+fastapi
