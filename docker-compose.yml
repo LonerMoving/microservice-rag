@@ -1,0 +1,19 @@
+services:
+  rag:
+    environment:
+      - OLLAMA_URL=http://host.docker.internal:11434
+    build: ./rag_project
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./rag_project/documents:/app/documents
+      - ./rag_project/storage:/app/storage
+  
+  gateway:
+    build: ./gateway
+    ports:
+      - "8090:8080"
+    environment:
+      - RAG_URL=http://rag:8000
+    depends_on:
+      - rag
